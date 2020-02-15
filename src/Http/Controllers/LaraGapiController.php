@@ -14,10 +14,10 @@ class LaraGapiController extends Controller
     protected $client;
 
     /**
-     * Instantiate a new controller instance.
-     *
-     * @return void
-     */
+    * Instantiate a new controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         // create an instance of the google client for OAuth2
@@ -42,22 +42,38 @@ class LaraGapiController extends Controller
     *
     * Redirect browser to Google login
     *
-    * @return      array
+    * @return      redirect
     *
     */
     public function redirectTo() {
 
-        //$google_client->createAuthUrl()
-        return redirect()->away('https://www.google.com');
+        $url = $this->client->createAuthUrl();
+        return redirect()->away($url);
     }
 
-    public function handleCallback() {
+    /**
+    *
+    * Handle Google oAuth callback
+    *
+    * @param       Request $request
+    * @return      $request
+    *
+    */
+    public function handleCallback(Request $request) {
 
-        return null;
+        return $request;
     }
 
+    /**
+    *
+    * Handle Google oAuth callback
+    *
+    * @return      redirect
+    *
+    */
     public function logout() {
 
-
+        $this->client->revokeToken();
+        //return redirect
     }
 }
