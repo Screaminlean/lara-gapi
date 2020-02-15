@@ -1,0 +1,29 @@
+{
+    "name": "screaminlean/lara-gapi",
+    "description": "Package for using Google API client for php in Laravel 6.",
+    "type": "library",
+    "require": {
+        "php": ">=7.1.2",
+        "google/apiclient": "^2.0@dev",
+        "illuminate/support": ">=6.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Screaminlean",
+            "email": "screaminlean@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Screaminlean\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["Screaminlean\\LaraGapiServiceProvider"]
+        }
+    }
+}
